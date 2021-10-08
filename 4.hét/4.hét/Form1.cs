@@ -36,6 +36,7 @@ namespace _4.hét
             InitializeComponent();
             LoadData();
             CreateExcel();
+            FormatTable();
         }
 
         private void LoadData()
@@ -112,6 +113,17 @@ namespace _4.hét
             tableRange.Value2 = values;
 
 
+            
+
+
+
+        }
+
+        public void FormatTable()
+        {
+            int lastColoumnID = xlSheet.UsedRange.Columns.Count;
+            int lastRowID = xlSheet.UsedRange.Rows.Count;
+            Excel.Range tableRange1 = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, lastColoumnID));
             Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
             headerRange.Font.Bold = true;
             headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -121,21 +133,15 @@ namespace _4.hét
             headerRange.Interior.Color = Color.LightBlue;
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
-            Excel.Range firstColoumn = xlSheet.get_Range(GetCell(2, 1), GetCell(values.GetLength(0), 1));
-            Excel.Range lastColoumn = xlSheet.get_Range(GetCell(2, 9), GetCell(values.GetLength(0), 9));
+            tableRange1.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+            Excel.Range firstColoumn = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
+            Excel.Range lastColoumn = xlSheet.get_Range(GetCell(2, 9), GetCell(lastRowID, 9));
 
             firstColoumn.Font.Bold = true;
             firstColoumn.Interior.Color = Color.LightYellow;
 
             lastColoumn.NumberFormat = "#,##0.00";
-
-
-
-        }
-
-        public void FormatTable()
-        {
+            lastColoumn.Interior.Color = Color.LightGreen;
             
         }
 
