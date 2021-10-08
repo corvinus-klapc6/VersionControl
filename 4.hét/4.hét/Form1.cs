@@ -19,6 +19,18 @@ namespace _4.hét
         Excel.Application xlApp; // A Microsoft Excel alkalmazás
         Excel.Workbook xlWB; // A létrehozott munkafüzet
         Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
+
+        string[] headers = new string[] {
+            "Kód",
+            "Eladó",
+            "Oldal",
+            "Kerület",
+            "Lift",
+            "Szobák száma",
+            "Alapterület (m2)",
+            "Ár (mFt)",
+            "Négyzetméter ár (Ft/m2)"};
+
         public Form1()
         {
             InitializeComponent();
@@ -64,16 +76,7 @@ namespace _4.hét
         }
         private void CreateTable()
         {
-            string[] headers = new string[] {
-            "Kód",
-             "Eladó",
-             "Oldal",
-             "Kerület",
-                     "Lift",
-            "Szobák száma",
-                "Alapterület (m2)",
-             "Ár (mFt)",
-        "Négyzetméter ár (Ft/m2)"};
+            
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -107,6 +110,21 @@ namespace _4.hét
             GetCell(2, 1),
             GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
 
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+        }
+
+        public void FormatTable()
+        {
+            
         }
 
         private string GetCell(int x, int y)
