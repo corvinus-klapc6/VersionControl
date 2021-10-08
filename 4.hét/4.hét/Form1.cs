@@ -65,15 +65,15 @@ namespace _4.hét
         private void CreateTable()
         {
             string[] headers = new string[] {
-            "Eladó",
             "Kód",
-            "Oldal",
-            "Kerület",
-            "Lift",
+             "Eladó",
+             "Oldal",
+             "Kerület",
+                     "Lift",
             "Szobák száma",
-            "Alapterület (m2)",
-            "Ár (mFt)",
-            "Négyzetméter ár (Ft/m2)"};
+                "Alapterület (m2)",
+             "Ár (mFt)",
+        "Négyzetméter ár (Ft/m2)"};
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -87,6 +87,7 @@ namespace _4.hét
                 values[counter, 0] = f.Code;
                 values[counter, 1] = f.Vendor;
                 values[counter, 2] = f.Side;
+                values[counter, 3] = f.District;
                 if (f.Elevator == true)
                 {
                     values[counter, 4] = "Van";
@@ -95,11 +96,11 @@ namespace _4.hét
                 {
                     values[counter, 4] = "Nincs";
                 }
-                values[counter, 0] = f.Elevator;
+                
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 7] = "";
+                values[counter, 8] = "=1000000*"+GetCell(counter + 2,8)+"/"+GetCell(counter + 2, 7);
                 counter++;
             }
             xlSheet.get_Range(
