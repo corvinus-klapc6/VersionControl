@@ -38,6 +38,7 @@ namespace week_08
             this.ballbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.presentbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@ namespace week_08
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.presentbutton);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ballbutton);
@@ -116,6 +118,16 @@ namespace week_08
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // presentbutton
+            // 
+            this.presentbutton.Location = new System.Drawing.Point(31, 255);
+            this.presentbutton.Name = "presentbutton";
+            this.presentbutton.Size = new System.Drawing.Size(89, 50);
+            this.presentbutton.TabIndex = 5;
+            this.presentbutton.Text = "Present";
+            this.presentbutton.UseVisualStyleBackColor = true;
+            this.presentbutton.Click += new System.EventHandler(this.presentbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -140,6 +152,7 @@ namespace week_08
         private System.Windows.Forms.Button ballbutton;
         private System.Windows.Forms.Button carbutton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button presentbutton;
     }
 }
 
