@@ -46,12 +46,27 @@ namespace week_08
             this.mainPanel.Size = new System.Drawing.Size(0, 0);
             this.mainPanel.TabIndex = 0;
             // 
+            // createTimer
+            // 
+            this.createTimer.Enabled = true;
+            this.createTimer.Interval = 3000;
+            this.createTimer.Tick += new System.EventHandler(this.createTimer_Tick_1);
+            // 
+            // conveyorTimer
+            // 
+            this.conveyorTimer.Enabled = true;
+            this.conveyorTimer.Interval = 10;
+            this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick_1);
+            // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.mainPanel);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 357);
+            this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 1;
             // 
             // Form1
