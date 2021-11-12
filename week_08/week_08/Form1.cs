@@ -39,7 +39,7 @@ namespace week_08
             var maxPosition = 0;
             foreach (var ball in _balls)
             {
-                ball.MoveBall();
+                ball.MoveToy();
                 if (ball.Left > maxPosition)
                     maxPosition = ball.Left;
             }
@@ -65,7 +65,7 @@ namespace week_08
             var maxPosition = 0;
             foreach (var ball in _balls)
             {
-                ball.MoveBall();
+                ball.MoveToy();
                 if (ball.Left > maxPosition)
                     maxPosition = ball.Left;
             }

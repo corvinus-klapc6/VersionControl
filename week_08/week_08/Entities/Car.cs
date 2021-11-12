@@ -4,18 +4,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using week_08.Abstractions;
+
 
 namespace week_08.Entities
 {
-    class Ball : Toy
+    class Car : Toy
     {
-
         protected override void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            throw new NotImplementedException();
         }
-       
     }
 }
