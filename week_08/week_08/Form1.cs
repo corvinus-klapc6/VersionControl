@@ -104,7 +104,7 @@ namespace week_08
                 
             }
             _nextToy = Factory.CreateNew();
-            _nextToy.Top = label1.Top + label1.Top + 20;
+            _nextToy.Top = label1.Top + label1.Height + 10;
             _nextToy.Left = label1.Left;
             panel1.Controls.Add(_nextToy);
         }
@@ -124,11 +124,33 @@ namespace week_08
         {
             Factory = new PresentFactory
             {
-                ribbon = Color.Black,
-                box = Color.White
+                ribbon = button3.BackColor,
+                box = button2.BackColor
                 
                 
             };
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
         }
     }
 }

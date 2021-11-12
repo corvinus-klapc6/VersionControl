@@ -34,11 +34,13 @@ namespace week_08
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.carbutton = new System.Windows.Forms.Button();
-            this.ballbutton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.presentbutton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ballbutton = new System.Windows.Forms.Button();
+            this.carbutton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +70,8 @@ namespace week_08
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.presentbutton);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
@@ -79,34 +83,15 @@ namespace week_08
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 1;
             // 
-            // carbutton
+            // presentbutton
             // 
-            this.carbutton.Location = new System.Drawing.Point(24, 193);
-            this.carbutton.Name = "carbutton";
-            this.carbutton.Size = new System.Drawing.Size(97, 48);
-            this.carbutton.TabIndex = 1;
-            this.carbutton.Text = "Car";
-            this.carbutton.UseVisualStyleBackColor = true;
-            this.carbutton.Click += new System.EventHandler(this.carbutton_Click);
-            // 
-            // ballbutton
-            // 
-            this.ballbutton.Location = new System.Drawing.Point(156, 193);
-            this.ballbutton.Name = "ballbutton";
-            this.ballbutton.Size = new System.Drawing.Size(97, 48);
-            this.ballbutton.TabIndex = 2;
-            this.ballbutton.Text = "Ball";
-            this.ballbutton.UseVisualStyleBackColor = true;
-            this.ballbutton.Click += new System.EventHandler(this.ballbutton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(336, 220);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Coming Next: ";
+            this.presentbutton.Location = new System.Drawing.Point(31, 255);
+            this.presentbutton.Name = "presentbutton";
+            this.presentbutton.Size = new System.Drawing.Size(89, 50);
+            this.presentbutton.TabIndex = 5;
+            this.presentbutton.Text = "Present";
+            this.presentbutton.UseVisualStyleBackColor = true;
+            this.presentbutton.Click += new System.EventHandler(this.presentbutton_Click);
             // 
             // button1
             // 
@@ -118,15 +103,54 @@ namespace week_08
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // presentbutton
+            // label1
             // 
-            this.presentbutton.Location = new System.Drawing.Point(31, 255);
-            this.presentbutton.Name = "presentbutton";
-            this.presentbutton.Size = new System.Drawing.Size(89, 50);
-            this.presentbutton.TabIndex = 5;
-            this.presentbutton.Text = "Present";
-            this.presentbutton.UseVisualStyleBackColor = true;
-            this.presentbutton.Click += new System.EventHandler(this.presentbutton_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(336, 220);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Coming Next: ";
+            // 
+            // ballbutton
+            // 
+            this.ballbutton.Location = new System.Drawing.Point(156, 193);
+            this.ballbutton.Name = "ballbutton";
+            this.ballbutton.Size = new System.Drawing.Size(97, 48);
+            this.ballbutton.TabIndex = 2;
+            this.ballbutton.Text = "Ball";
+            this.ballbutton.UseVisualStyleBackColor = true;
+            this.ballbutton.Click += new System.EventHandler(this.ballbutton_Click);
+            // 
+            // carbutton
+            // 
+            this.carbutton.Location = new System.Drawing.Point(24, 193);
+            this.carbutton.Name = "carbutton";
+            this.carbutton.Size = new System.Drawing.Size(97, 48);
+            this.carbutton.TabIndex = 1;
+            this.carbutton.Text = "Car";
+            this.carbutton.UseVisualStyleBackColor = true;
+            this.carbutton.Click += new System.EventHandler(this.carbutton_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button2.Location = new System.Drawing.Point(136, 255);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 48);
+            this.button2.TabIndex = 6;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(136, 309);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(97, 48);
+            this.button3.TabIndex = 7;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -153,6 +177,8 @@ namespace week_08
         private System.Windows.Forms.Button carbutton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button presentbutton;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
 
