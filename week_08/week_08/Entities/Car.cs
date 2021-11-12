@@ -13,7 +13,8 @@ namespace week_08.Entities
     {
         protected override void DrawImage(Graphics g)
         {
-            throw new NotImplementedException();
+            Image imageFile = Image.FromFile("Image/car.png");
+            g.DrawImage(imageFile, new Rectangle(0, 0, Width, Height));
         }
     }
 }
