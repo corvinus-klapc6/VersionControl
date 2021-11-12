@@ -31,7 +31,7 @@ namespace week_08
             var ball = Factory.CreateNew();
             _balls.Add(ball);
             ball.Left = -ball.Width;
-            mainPanel.Controls.Add(ball);
+            panel1.Controls.Add(ball);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace week_08
             if (maxPosition > 1000)
             {
                 var oldestBall = _balls[0];
-                mainPanel.Controls.Remove(oldestBall);
+                panel1.Controls.Remove(oldestBall);
                 _balls.Remove(oldestBall);
             }
         }
