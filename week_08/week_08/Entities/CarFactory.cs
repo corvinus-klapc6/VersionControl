@@ -7,7 +7,7 @@ using week_08.Abstractions;
 
 namespace week_08.Entities
 {
-    class CarFactory
+    class CarFactory : IToyFactory
     {
         public Toy CreateNew()
         {
