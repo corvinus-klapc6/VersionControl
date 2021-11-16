@@ -21,12 +21,38 @@ namespace KLAPC6_7hét
         public Form1()
         {
             InitializeComponent();
+            GetCurrencies();
             RefreshData();
 
         }
 
+        private void GetCurrencies()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+
+            Console.WriteLine(result);
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            // Végigmegünk a dokumentum fő elemének gyermekein
+            foreach (XmlElement element in xml.DocumentElement.ChildNodes[0])
+            {
+
+                string currency = element.InnerText;
+
+
+
+
+                Currencies.Add(currency);
+            }
+        }
+
         private void RefreshData()
         {
+            comboBox1.DataSource = Currencies;
             Rates.Clear();
             HarmadikFeladat();
             dataGridView1.DataSource = Rates;
@@ -68,12 +94,12 @@ namespace KLAPC6_7hét
             // Ebben az esetben a "var" a GetExchangeRatesResult property alapján kapja a típusát.
             // Ezért a result változó valójában string típusú.
             var result = response.GetExchangeRatesResult;
-            SaveFileDialog sfd = new SaveFileDialog();
+            //SaveFileDialog sfd = new SaveFileDialog();
             //if (sfd.ShowDialog() != DialogResult.OK)
             //{
             //    return;
             //}
-            //Console.WriteLine(result);
+            Console.WriteLine(result);
 
             var xml = new XmlDocument();
             xml.LoadXml(result);
@@ -91,6 +117,8 @@ namespace KLAPC6_7hét
 
                 // Valuta
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 // Érték
