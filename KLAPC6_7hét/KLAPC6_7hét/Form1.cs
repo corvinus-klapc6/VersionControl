@@ -10,28 +10,55 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KLAPC6_7hét.Entities;
 using System.Xml;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace KLAPC6_7hét
 {
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
+            RefreshData();
+
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
             HarmadikFeladat();
             dataGridView1.DataSource = Rates;
-            
+            ChartCreation();
         }
+
+        private void ChartCreation()
+        {
+            chartRateData.DataSource = Rates;
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+            var area = chartRateData.ChartAreas[0];
+            var legend = chartRateData.Legends[0];
+            area.AxisY.IsStartedFromZero = false;
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            legend.Enabled = false;
+        }
+
         public void HarmadikFeladat()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = comboBox1.SelectedItem.ToString(),
+                startDate = dateTimePicker1.Value.ToString(),
+                endDate = dateTimePicker2.Value.ToString()
             };
 
             // Ebben az esetben a "var" a GetExchangeRates visszatérési értékéből kapja a típusát.
@@ -74,6 +101,20 @@ namespace KLAPC6_7hét
                 Rates.Add(rate);
             }
         }
-        
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }
