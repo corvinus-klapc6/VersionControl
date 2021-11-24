@@ -32,6 +32,7 @@ namespace UnitTestExample.Controllers
 
             var account = new Account()
             {
+                
                 Email = email,
                 Password = password
             };
